@@ -1,24 +1,25 @@
 # Board Game Geek Win Stats for MagicMirror
 
-Load 100 most recent win stats from plays of a single BGG username & collate based on names from the players to generate stats.
+**Load 100 most recent win stats from plays of a single BGG username & aggregate win totals from a list of provided plyer names.**
 
 Built using the [Board Game Geek API](https://boardgamegeek.com/wiki/page/BGG_XML_API2).
 
 ---
 
-## Installing the module
+## Instal the module
 
-To install, clone this repo into `~/MagicMirror/modules` directory. Then move in the folder and install required libraries.
+To install, clone this repo into the `~/MagicMirror/modules` directory. Then move into the folder and install the required dependencies.
 
 ```
+cd ~/MagicMirror/modules
 git clone https://github.com/thomasjbradley/MMM-BoardGameGeek-WinCounts
 cd MMM-BoardGameGeek-WinCounts
 npm install
 ```
 
-## Using the module
+## Set up the module
 
-To use this module, add the following configuration block to the modules array in the `config/config.js` file:
+Set up the module by adding the following configuration block to the modules array in your `config/config.js` file:
 
 ```js
 var config = {
@@ -35,7 +36,7 @@ var config = {
 }
 ```
 
-## Configuration options
+## Config options
 
 | Option         | Description                                                   |
 | -------------- | ------------------------------------------------------------- |
