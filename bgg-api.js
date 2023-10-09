@@ -23,10 +23,16 @@ const parseWinCounts = (config, body) => {
           return;
         }
         if (!Object.hasOwn(wins, pname)) {
-          wins[pname] = { name: player.name.trim(), wins: 0 };
+          wins[pname] = { name: player.name.trim(), wins: 0, place: 0 };
         }
         wins[pname].wins += player.win;
       });
+    });
+    sortedWins = Object.values(wins);
+    sortedWins.sort((a, b) => b.wins - a.wins);
+    sortedWins.forEach((winner, i) => {
+      const lower = winner.name.toLowerCase().trim();
+      wins[lower].place = i + 1;
     });
   } catch {
     throw new Error("BGG play results not in correct format.");

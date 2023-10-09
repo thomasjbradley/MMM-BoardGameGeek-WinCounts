@@ -33,12 +33,13 @@ Module.register("MMM-BoardGameGeek-WinCounts", {
       div.appendChild(p);
       return div;
     }
-    Object.keys(this.result.wins).forEach((winner) => {
-      const player = this.result.wins[winner];
+    this.config.names.forEach((name) => {
+      const player = this.result.wins[name.toLowerCase().trim()];
       const group = document.createElement("div");
       const dt = document.createElement("dt");
       const dd = document.createElement("dd");
       group.classList.add("bgg-winner");
+      group.classList.add(`bgg-place-${player.place}`);
       dt.classList.add("bgg-winner-name");
       dt.innerText = player.name;
       dd.classList.add("bgg-winner-count");
