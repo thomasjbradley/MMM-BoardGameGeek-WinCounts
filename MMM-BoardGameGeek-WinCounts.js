@@ -11,7 +11,7 @@ Module.register("MMM-BoardGameGeek-WinCounts", {
 
   defaults: {
     title: "Board Game Win Counts",
-    updateInterval: 1000 * 60 * 60 * 4, // Every 4 hours
+    updateInterval: 1000 * 60 * 15, // Every 15 minutes
     username: "",
     names: [],
   },

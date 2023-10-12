@@ -38,8 +38,8 @@ var config = {
 
 ## Config options
 
-| Option         | Description                                                   |
-| -------------- | ------------------------------------------------------------- |
-| username       | The BGG username to grab play stats from                      |
-| names          | An array of player names to aggregate wins for                |
-| updateInterval | *Optional* How often to update the win stats; Default 4 hours |
+| Option         | Description                                                      |
+| -------------- | ---------------------------------------------------------------- |
+| username       | The BGG username to grab play stats from                         |
+| names          | An array of player names to aggregate wins for                   |
+| updateInterval | *Optional* How often to update the win stats; Default 15 minutes |
