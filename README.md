@@ -1,6 +1,6 @@
 # Board Game Geek Win Stats for MagicMirror
 
-**Load 100 most recent win stats from plays of a single BGG username & aggregate win totals from a list of provided plyer names.**
+**Load all of the current year’s win stats from plays of a single BGG username & aggregate win totals from a list of provided plyer names.**
 
 Built using the [Board Game Geek API](https://boardgamegeek.com/wiki/page/BGG_XML_API2).
 
