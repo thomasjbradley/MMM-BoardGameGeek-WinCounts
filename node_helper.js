@@ -14,9 +14,8 @@ module.exports = NodeHelper.create({
     console.log("MMM-BoardGameGeek-WinCounts helper started");
   },
   getWinCounts: function (config) {
-    const parent = this;
     bggapi.getWinCounts(config).then((wins) => {
-      parent.sendSocketNotification("BGG_WINS", wins);
+      this.sendSocketNotification("BGG_WINS", wins);
     });
   },
   socketNotificationReceived: function (notification, payload) {

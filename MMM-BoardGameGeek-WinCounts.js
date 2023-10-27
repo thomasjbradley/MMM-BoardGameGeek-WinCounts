@@ -57,7 +57,7 @@ Module.register("MMM-BoardGameGeek-WinCounts", {
   },
 
   scheduleUpdate: function () {
-    setInterval(function () {
+    setInterval(() => {
       this.getWinCounts();
     }, this.config.updateInterval);
   },
