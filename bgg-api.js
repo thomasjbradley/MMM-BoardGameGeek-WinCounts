@@ -30,6 +30,9 @@ const makeWinCounts = (config) => {
 const parseWinCounts = (config, wins, pages) => {
   const lowerNames = config.names.map((n) => n.toLowerCase().trim());
   pages.forEach((xml) => {
+    if (!Object.hasOwn(xml, "plays") || !Object.hasOwn(xml.plays, "play")) {
+      return;
+    }
     xml.plays.play.forEach((play) => {
       if (!Object.hasOwn(play, "players")) {
         return;
@@ -47,7 +50,9 @@ const parseWinCounts = (config, wins, pages) => {
   sortedWins.sort((a, b) => b.wins - a.wins);
   sortedWins.forEach((winner, i) => {
     const lower = winner.name.toLowerCase().trim();
-    wins[lower].place = i + 1;
+    if (wins[lower].wins > 0) {
+      wins[lower].place = i + 1;
+    }
   });
   return wins;
 };
