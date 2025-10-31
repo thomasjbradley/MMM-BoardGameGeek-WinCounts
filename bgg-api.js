@@ -57,13 +57,14 @@ const parseWinCounts = (config, wins, pages) => {
   return wins;
 };
 
-const callAPI = async (username, start, end, page) => {
+const callAPI = async (apiKey, username, start, end, page) => {
   return await fetch(
     `https://boardgamegeek.com/xmlapi2/plays?username=${username}&mindate=${start}&maxdate=${end}&page=${page}`,
     {
       method: "GET",
       headers: {
         Accept: "text/xml",
+        Authorization: `Bearer ${apiKey}`,
         "User-Agent":
           "MMM-BoardGameGeek-WinCounts (https://github.com/thomasjbradley/MMM-BoardGameGeek-WinCounts)",
       },
@@ -77,11 +78,17 @@ const getWinCounts = async (config) => {
   const start = `${year}-01-01`;
   const end = `${year}-12-31`;
   const pages = [];
-  const firstPageResponse = await callAPI(config.username, start, end, 1);
+  const firstPageResponse = await callAPI(
+    config.apiKey,
+    config.username,
+    start,
+    end,
+    1,
+  );
   const [firstPage, totalPages] = parseXml(await firstPageResponse.text());
   pages.push(firstPage);
   for (let i = 2; i <= totalPages; i++) {
-    const pageResponse = await callAPI(config.username, start, end, i);
+    const pageResponse = await callAPI(config.apiKey, config.username, start, end, i);
     const [page, _] = parseXml(await pageResponse.text());
     pages.push(page);
   }

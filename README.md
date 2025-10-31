@@ -29,6 +29,7 @@ var config = {
             position: 'bottom_left',
             config: {
                 username: "thomasjbradley", // The BGG user to grab play stats from
+                apiKey: "YOUR_API_KEY", // Register your application at BGG to get the key: https://boardgamegeek.com/applications
                 names: ["Thomas", "Liz", "Edith"], // The filter of names from the plays to aggregate
             }
         }
@@ -41,5 +42,6 @@ var config = {
 | Option         | Description                                                      |
 | -------------- | ---------------------------------------------------------------- |
 | username       | The BGG username to grab play stats from                         |
+| apiKey         | The BGG registered application API bearer token                  |
 | names          | An array of player names to aggregate wins for                   |
 | updateInterval | *Optional* How often to update the win stats; Default 15 minutes |
