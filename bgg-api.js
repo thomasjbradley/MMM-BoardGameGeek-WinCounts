@@ -11,6 +11,9 @@ const parseXml = (body) => {
   });
   const pageSize = 100.0; // As per BGG documentation: https://boardgamegeek.com/wiki/page/BGG_XML_API2#toc10
   const xml = parser.parse(body);
+  if (!Object.hasOwnProperty(xml, "plays")) {
+    return [xml, 0];
+  }
   return [xml, Math.ceil(parseFloat(xml.plays.total) / pageSize)];
 };
 
@@ -29,6 +32,7 @@ const makeWinCounts = (config) => {
 
 const parseWinCounts = (config, wins, pages) => {
   const lowerNames = config.names.map((n) => n.toLowerCase().trim());
+  let sortedWins;
   pages.forEach((xml) => {
     if (!Object.hasOwn(xml, "plays") || !Object.hasOwn(xml.plays, "play")) {
       return;

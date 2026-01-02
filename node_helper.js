@@ -1,7 +1,7 @@
 /**
  * Board Game Geek Win Counts
  * @author Thomas J Bradley <hey@thomasjbradley.ca>
- * @license MIT Licensed.
+ * @license MIT
  */
 
 "use strict";
@@ -19,7 +19,7 @@ module.exports = NodeHelper.create({
     });
   },
   socketNotificationReceived: function (notification, payload) {
-    if (notification == "GET_BGG_WINS") {
+    if (notification === "GET_BGG_WINS") {
       this.getWinCounts(payload);
     }
   },
